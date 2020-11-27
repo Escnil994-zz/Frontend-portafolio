@@ -1,0 +1,35 @@
+<div class="loading" *ngIf="!comments">
+  <img src="https://res.cloudinary.com/escnil994/image/upload/v1604773839/angular/My_Post_6_inxozk.gif"
+       alt="Cargando..">
+  <br>
+  <img id="loader" src="https://res.cloudinary.com/escnil994/image/upload/v1604000960/angular/ZZ5H_cpsehd.gif"
+       alt="Cargando...">
+</div>
+
+<div>
+  <div id="comments" *ngIf="comments">
+    <article class="comment-item" *ngFor="let comments of comments">
+      <ng-container *ngIf="_authService.loggedIn()">
+        <div class="text-right delete-comment-box">
+          <a (click)="deletePost(comments._id)" class="delete-comment" title="Eliminar comentario">'</a>
+        </div>
+      </ng-container>
+      <h4><img src="https://res.cloudinary.com/escnil994/image/upload/v1603960708/angular/user_yldyfw.png"
+               class="default-user"> {{comments.name}}</h4>
+      <div id="content-comment">
+        <span id="datesa">
+          {{ comments.date | amDateFormat:'LL' }}
+        </span>
+        <p class="text-left">{{comments.comment}}</p>
+        <ng-container *ngIf="_authService.loggedIn()">
+          <div class="text-left font-weight-bold text-success">
+            <p class="text-danger">Esto no se muestra al usuario, solo al administrador</p>
+            <span >{{comments.email}}</span>
+            <br>
+            <a href="mailto:{{comments.email}}">Contactar a {{comments.name}}</a>
+          </div>
+        </ng-container>
+      </div>
+    </article>
+  </div>
+</div>

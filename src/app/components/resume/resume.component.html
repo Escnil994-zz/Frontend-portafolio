@@ -1,0 +1,99 @@
+<app-header></app-header>
+<app-banner [sliderName]="sliderName"></app-banner>
+<div class="down-act">
+  <button title="Descargar una copia" (click)="onExportClick();">
+    <span id="down">F</span>
+  </button>
+</div>
+<div class="container">
+    <span class="text-danger font-weight-bold text-uppercase">Por motivos de privacidad esta informacion no está completa, pero puedes preguntar por mas
+        e los diferentes medios de <a class="text-primary" [routerLink]="['/contacts']">contacto</a> </span>
+</div>
+<div id="resume" class="container">
+  <br>
+  <div id="resume-wraper">
+    <div id="resume-img">
+      <img src="https://res.cloudinary.com/escnil994/image/upload/v1603960750/angular/perfil_vpitmt.png" alt="">
+    </div>
+    <div id="resume-name">
+      <h2>Nilson Eduardo <br> Escobar Vicente</h2>
+    </div>
+  </div>
+
+
+  <div id="resume-content">
+    <div class="sub-title">
+      <h5 class="text-weight-bold text-white font-weight-bold text-uppercase text-left pl-2">Información personal
+      </h5>
+    </div>
+    <div class="" class="resume-subcontent">
+      <p class="text-left pl-2 font-weight-bold">San Salvador – El Salvador</p>
+      <p class="text-left pl-2 font-weight-bold"><a
+        href="mailto:nilsonescobar@escnil994.com">nilsonescobar@escnil994.com</a></p>
+      <p class="text-left pl-2 font-weight-bold"><a href="tel:50375068027">7506 - 8027</a></p>
+      <p class="text-left pl-2 font-weight-bold">Edad: 23 años</p>
+    </div>
+
+    <div class="sub-title">
+      <h5 class="text-weight-bold text-white font-weight-bold text-uppercase text-left pl-2">perfil</h5>
+    </div>
+    <div class="resume-subcontent">
+      <p class="text-left pl-2 font-weight-bold">
+        Estudiante, amante de la tecnología en general y de las matemáticas. Con muchas ganas de
+        poner en práctica habilidades que he adquirido durante mi vida y mi formación y así poder contribuir al
+        desarrollo de una empresa como también a mi desarrollo personal y profesional.
+      </p>
+    </div>
+
+    <div class="sub-title">
+      <h5 class="text-weight-bold text-white font-weight-bold text-uppercase text-left pl-2">formación</h5>
+    </div>
+    <div class="resume-subcontent">
+      <p class="text-left pl-2 font-weight-bold">Ingeniería de sistemas Informáticos, Universidad de El Salvador,
+        San Salvador</p>
+      <p class="date-resume text-secondary">ENERO 2018 – ACTUALMENTE</p>
+    </div>
+
+    <div class="sub-title">
+      <h5 class="text-weight-bold text-white font-weight-bold text-uppercase text-left pl-2">habilidades</h5>
+    </div>
+    <div class="resume-subcontent">
+      <p class="text-left pl-2 font-weight-bold list"><span class="hab-symb">.</span> Microsoft Word.</p>
+      <p class="text-left pl-2 font-weight-bold list"><span class="hab-symb">.</span> Microsoft Excel.</p>
+      <p class="text-left pl-2 font-weight-bold list"><span class="hab-symb">.</span> La Nube.</p>
+      <p class="text-left pl-2 font-weight-bold list"><span class="hab-symb">.</span> Navegadores Web.</p>
+      <p class="text-left pl-2 font-weight-bold list"><span class="hab-symb">.</span> Windows 10 –7.</p>
+      <p class="text-left pl-2 font-weight-bold list"><span class="hab-symb">.</span> Sistemas Operativos Móviles.
+      </p>
+      <p class="text-left pl-2 font-weight-bold list"><span class="hab-symb">.</span> Conocimientos básicos de
+        Linux (Debian).</p>
+      <p class="text-left pl-2 font-weight-bold list"><span class="hab-symb">.</span> Conocimientos básicos de
+        lenguajes de programación(HTML, CSS, JavaScript, PHP).</p>
+      <p class="text-left pl-2 font-weight-bold list"><span class="hab-symb">.</span> Habilidad par trabajar con
+        números.</p>
+    </div>
+
+    <div class="sub-title">
+      <h5 class="text-weight-bold text-white font-weight-bold text-uppercase text-left pl-2">otros cursos</h5>
+    </div>
+    <div class="resume-subcontent">
+      <p class="text-left pl-2 font-weight-bold list">Inglés, English4CallCenter</p>
+      <p class="date-resume text-secondary">MAYO 2019 – NOVIEMBRE 2019</p>
+    </div>
+
+    <div class="sub-title">
+      <h5 class="text-weight-bold text-white font-weight-bold text-uppercase text-left pl-2">idiomas
+      </h5>
+    </div>
+    <div class="resume-subcontent">
+      <p class="text-left pl-2 font-weight-bold list"><span class="hab-symb">.</span> Español - Nativo</p>
+      <p class="text-left pl-2 font-weight-bold list"><span class="hab-symb">.</span> Inglés - Avanzado</p>
+    </div>
+
+  </div>
+
+</div>
+<br>
+
+
+<app-footer></app-footer>

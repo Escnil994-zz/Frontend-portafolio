@@ -1,0 +1,123 @@
+<aside id="sidebar">
+  <ng-container *ngIf="authService.loggedIn()">
+    <div class="sidebar-item">
+      <h3 class="sp">puedes hacer esto</h3>
+      <div id="social" class="aside-box">
+        <div class="twitter">
+          <a class="mas" id="mas" [routerLink]="['/new-project']">Crear Nuevo Proyecto</a>
+        </div>
+        <div class="facebook">
+          <a class="mas" id="mas" [routerLink]="['/new-post']">Crear Nuevo Post</a>
+        </div>
+        <div class="youtube">
+          <a (click)="authService.logout()" id="mas" class="mas">Cerrar Sesión</a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <div id="search" class="sidebar-item">
+    <h3 class="sp">Buscador</h3>
+    <div class="aside-box buscador">
+      <form #searchForm="ngForm" (ngSubmit)="goSearch()">
+        <input name="search" [(ngModel)]="searchProject" id="bnt-look">
+        <input class="icon icon-look" type="submit" value="L">
+      </form>
+    </div>
+  </div>
+  <div id="nav-blog" class="sidebar-item">
+    <h3 class="sp">últimos</h3>
+    <div class="aside-box especial">
+      <div *ngIf="!projects">
+        <img src="https://res.cloudinary.com/escnil994/image/upload/v1604000967/angular/loadin_znuc7n.gif"
+          alt="cargando...">
+      </div>
+
+      <article class="project-item-especial" *ngFor="let project of projects">
+        <a [routerLink]="['/more/project', project._id]">
+          <img class="w-25" src="{{project.image}}">
+          <h5 id="last-projects-title">{{project.title}}</h5>
+        </a>
+      </article>
+      <a class="mas" [routerLink]="['/portfolio']"><strong>Ver mas proyectos</strong></a>
+    </div>
+
+  </div>
+
+  <div class="sidebar-item">
+    <h3 class="sp">REDES SOCIALES</h3>
+    <div id="social" class="aside-box">
+      <div class="twitter">
+        <a class="icon" href="https://twitter.com/escnil994" target="_blank">t</a>
+      </div>
+      <div class="facebook">
+        <a class="icon" href="https://facebook.com/escnil994" target="_blank">f</a>
+      </div>
+      <div class="youtube">
+        <a [routerLink]="['/contacts']" class="mas"><strong>ver mas</strong></a>
+      </div>
+    </div>
+    <ng-container *ngIf="!authService.loggedIn()">
+      <h3 class="sp">LOGIN</h3>
+      <div class="login-register aside-box h-auto mb-3">
+        <form [formGroup]="myform" #frmLogin="ngForm" class="login-container" (ngSubmit)="onLogin(frmLogin)">
+          <input formControlName="email" type="email" name="email" placeholder="Ingresa tu email" required email>
+          <div *ngIf="(myform.get('email').errors && myform.get('email').dirty)">
+            <p class="text-danger" *ngIf="myform.get('email').hasError('email')">Correo no valido</p>
+            <p class="text-danger" *ngIf="myform.get('email').hasError('required')">No puede ser vacío</p>
+          </div>
+
+          <input formControlName="password" placeholder="Ingresa tu contraseña" type="password" name="password"
+            required />
+          <div *ngIf="(myform.get('password').errors && myform.get('password').dirty)">
+            <p class="text-danger" *ngIf="myform.get('password').hasError('password')">Incorrect <i
+                class="fa fa-sort-amount-asc" aria-hidden="true"></i></p>
+            <p class="text-danger" *ngIf="myform.get('password').hasError('required')">No puede ser vacío</p>
+            <p class="text-danger" *ngIf="myform.get('password').hasError('minlength')">8 caracteres mínimo</p>
+          </div>
+          <input id="input-login" class="mb-3" type="submit" value="Entrar" [disabled]="myform.invalid">
+
+        </form>
+      </div>
+    </ng-container>
+    <h3 class="sp">Registrate</h3>
+    <div class="aside-box login-register h-auto mb-3">
+      <form [formGroup]="registerForm" #signUp="ngForm" class="login-container" (ngSubmit)="onRegister(signUp)">
+        <input formControlName="name" type="email" name="name" placeholder="name" required>
+        <div *ngIf="(registerForm.get('name').errors && registerForm.get('name').dirty)">
+          <p class="text-danger" *ngIf="registerForm.get('name').hasError('required')">No puede ser vacío</p>
+        </div>
+        <input formControlName="email" type="email" name="email" placeholder="Ingresa tu email" required email>
+        <div *ngIf="(registerForm.get('email').errors && registerForm.get('email').dirty)">
+          <p class="text-danger" *ngIf="registerForm.get('email').hasError('email')">Correo no valido</p>
+          <p class="text-danger" *ngIf="registerForm.get('email').hasError('required')">No puede ser vacío</p>
+        </div>
+        <input formControlName="password" placeholder="Ingresa tu contraseña" type="password" name="password"
+          required />
+        <div *ngIf="(registerForm.get('password').errors && registerForm.get('password').dirty)">
+          <p class="text-danger" *ngIf="registerForm.get('password').hasError('password')">Incorrect <i
+              class="fa fa-sort-amount-asc" aria-hidden="true"></i></p>
+          <p class="text-danger" *ngIf="registerForm.get('password').hasError('required')">No puede ser vacío</p>
+          <p class="text-danger" *ngIf="registerForm.get('password').hasError('minlength')">8 caracteres mínimo</p>
+          <p class="text-danger" *ngIf="registerForm.get('password').hasError('strong')">Contraseña muy debil</p>
+        </div>
+        <ng-container *ngIf="authService.loggedIn()">
+          <input id="input-login" class="mb-3" type="submit" value="registrarse" [disabled]="signUp.invalid">
+        </ng-container>
+
+        <ng-container *ngIf="!authService.loggedIn()">
+          <div class="text-center">
+            <a id="register-hide" class="btn bg-primary text-white">Unavailable</a>
+          </div>
+        </ng-container>
+
+
+        <br><br><br>
+        <p></p>
+
+      </form>
+    </div>
+  </div>
+</aside>
+
+<div class="clearfix"></div>
