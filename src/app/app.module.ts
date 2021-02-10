@@ -34,6 +34,7 @@ import {PostComponent} from './components/post/post.component';
 import {ResumeComponent} from './components/resume/resume.component';
 import {UserInfoComponent} from './components/user-info/user-info.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { LogComponent } from './components/log/log.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     PostComponent,
     ResumeComponent,
     UserInfoComponent,
+    LogComponent,
   ],
   imports: [
     BrowserModule,

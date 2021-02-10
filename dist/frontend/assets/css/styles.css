@@ -938,7 +938,7 @@ aside .sp {
 }
 
 .project-detail .details * {
-  white-space: pre-line !important;
+  white-space: pre-line;
   text-align: left;
   line-height: 30px;
 }
@@ -1144,3 +1144,5 @@ aside .sp {
   margin-top: 20px;
   width: 60px;
 }
+
+

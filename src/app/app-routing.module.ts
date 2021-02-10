@@ -17,6 +17,7 @@ import {NewPostComponent} from './components/new-post/new-post.component';
 import {PostsComponent} from './components/posts/posts.component';
 import {PostComponent} from './components/post/post.component';
 import {ResumeComponent} from './components/resume/resume.component';
+import { LogComponent } from './components/log/log.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path: 'posts', component: PostsComponent},
   {path: 'post/:id', component: PostComponent},
   {path: 'resume', component: ResumeComponent},
+  {path: 'login-admin-pro/:admin', component: LogComponent},
   {path: '**', component: ErrorComponent}
 ];
 

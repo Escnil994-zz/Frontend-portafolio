@@ -1,9 +1,7 @@
 <div class="loading" *ngIf="!projects">
-  <img src="https://res.cloudinary.com/escnil994/image/upload/v1604773839/angular/My_Post_6_inxozk.gif"
-       alt="Cargando..">
-  <br>
-  <img id="loader" src="https://res.cloudinary.com/escnil994/image/upload/v1604000960/angular/ZZ5H_cpsehd.gif"
-       alt="Cargando...">
+  <div class="spinner-grow" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>  
 </div>
 
 <div class="loading" *ngIf="projects && projects.length == 0">

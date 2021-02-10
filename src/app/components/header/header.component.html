@@ -11,13 +11,6 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto" id="ul-header">
       <li class="nav-item li-header">
-        <ng-container *ngIf="authService.loggedIn()">
-          <div class="nav-link">
-            <h3 class="text-success">Estas como administrador</h3>
-          </div>
-        </ng-container>
-      </li>
-      <li class="nav-item li-header">
         <a class="nav-link" [routerLink]="['/blog']">Blog</a>
       </li>
       <li class="nav-item li-header">
@@ -29,6 +22,14 @@
       <li class="nav-item li-header">
         <a class="nav-link" [routerLink]="['/contacts']">contacto</a>
       </li>
+
     </ul>
   </div>
 </nav>
+
+<div class="admin">
+  
+    <ng-container class="text-danger" *ngIf="authService.loggedIn()">
+      <h4 class="nav-link text-danger" >Administrador</h4>
+    </ng-container>
+</div>
